@@ -65,6 +65,7 @@ div.light-container {
     display: inline-block;
     background-color: #333;
     margin: 2em;
+    border-radius: 5px;
 }
 
 div.light {
@@ -75,24 +76,24 @@ div.light {
     background-color: #aaa;
 }
 
-div.red-light {
+div.light-red {
     background-color: #f00;
 }
 
-div.green-light {
+div.light-green {
     background-color: #0f0;
 }
 
 div.light-off {
-    opacity: 0.5;
+    opacity: 0.3;
     box-shadow: 0px;
 }
 
-div.green-light.light-on {
+div.light-green.light-on {
     box-shadow: 0px 0px 1em 0.1em rgba(0,255,0,0.9);
 }
 
-div.red-light.light-on {
+div.light-red.light-on {
     box-shadow: 0px 0px 1em 0.1em rgba(255,0,0,0.9);
 }
 
@@ -101,10 +102,10 @@ div.light-blink {
   animation-iteration-count: infinite;
 }
 
-div.red-light.light-blink {
+div.light-red.light-blink {
     animation-name: red-blink;
 }
-div.green-light.light-blink {
+div.light-green.light-blink {
     animation-name: green-blink;
 }
 
