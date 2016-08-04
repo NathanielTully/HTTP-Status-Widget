@@ -13,8 +13,12 @@ class TrafficLight {
                      .addClass( this.colorClass )
                      .addClass( this.offClass );
 
-    return this.element;
+  }
 
+  getElement() {
+
+   return this.element;
+   
   }
 
   turnOn() {
@@ -54,8 +58,8 @@ class TrafficLightWidget {
       this.redLight = new TrafficLight( 'red' );
       this.greenLight = new TrafficLight( 'green' );
 
-      $( this.container ).append( this.redLight );
-      $( this.container ).append( this.greenLight );
+      $( this.container ).append( this.redLight.getElement() );
+      $( this.container ).append( this.greenLight.getElement() );
 
     }
 
