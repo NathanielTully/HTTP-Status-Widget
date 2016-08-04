@@ -56,15 +56,45 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    background-color: #A5C2F5;
+    padding: 2em;
+}
 
+div.light-container {
+    display: inline-block;
+    background-color: #333;
+    margin: 2em;
+}
 
+div.light {
+    width: 4em;
+    height: 4em;
+    margin: 1em;
+    border-radius: 2em;
+    background-color: #aaa;
+}
 
+div.red-light {
+    background-color: #f00;
+}
 
+div.green-light {
+    background-color: #0f0;
+}
 
+div.light-off {
+    opacity: 0.5;
+    box-shadow: 0px;
+}
 
+div.green-light.light-on {
+    box-shadow: 0px 0px 1em 0.1em rgba(0,255,0,0.75);
+}
 
-
-
+div.red-light.light-on {
+    box-shadow: 0px 0px 1em 0.1em rgba(255,0,0,0.75);
+}
 
 
 
