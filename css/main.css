@@ -86,7 +86,12 @@ div.light-green {
 
 div.light-off {
     opacity: 0.3;
-    box-shadow: 0px;
+    box-shadow: none;
+    transition: opacity 200ms, box-shadow 200ms;
+}
+
+div.light-on {
+    transition: opacity 200ms, box-shadow 200ms;
 }
 
 div.light-green.light-on {
@@ -114,7 +119,7 @@ div.light-green.light-blink {
 @keyframes red-blink {
     0% {
       opacity: 0.5;
-      box-shadow: 0px;
+      box-shadow: none;
     }
     20% {
       opacity: 1;
@@ -123,7 +128,7 @@ div.light-green.light-blink {
       box-shadow: 0px 0px 1em 0.1em rgba(255,0,0,0.9);
     }
     85% {
-      box-shadow: 0px;
+      box-shadow:none;
     }
     100% {
       opacity: 0.5;
@@ -133,7 +138,7 @@ div.light-green.light-blink {
 @keyframes green-blink {
     0% {
       opacity: 0.5;
-      box-shadow: 0px;
+      box-shadow: none;
     }
     20% {
       opacity: 1;
@@ -142,7 +147,7 @@ div.light-green.light-blink {
       box-shadow: 0px 0px 1em 0.1em rgba(0,255,0,0.9);
     }
     85% {
-      box-shadow: 0px;
+      box-shadow: none;
     }
     100% {
       opacity: 0.5;

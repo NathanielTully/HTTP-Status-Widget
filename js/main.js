@@ -1,4 +1,4 @@
-class TrafficLight {
+class Light {
   constructor( colour ) {
 
     this.baseClass = 'light';
@@ -18,7 +18,7 @@ class TrafficLight {
   getElement() {
 
    return this.element;
-   
+
   }
 
   turnOn() {
@@ -47,7 +47,7 @@ class TrafficLight {
 
 
 
-class TrafficLightWidget {
+class TrafficLight {
 
     constructor( containerElementID ) {
 
@@ -55,8 +55,8 @@ class TrafficLightWidget {
 
       $( this.container ).addClass( 'light-container' );
 
-      this.redLight = new TrafficLight( 'red' );
-      this.greenLight = new TrafficLight( 'green' );
+      this.redLight = new Light( 'red' );
+      this.greenLight = new Light( 'green' );
 
       $( this.container ).append( this.redLight.getElement() );
       $( this.container ).append( this.greenLight.getElement() );
