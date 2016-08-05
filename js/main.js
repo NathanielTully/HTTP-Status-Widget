@@ -45,8 +45,6 @@ class Light {
 
 }
 
-
-
 class TrafficLight {
 
     constructor( containerElementID ) {
@@ -62,5 +60,117 @@ class TrafficLight {
       $( this.container ).append( this.greenLight.getElement() );
 
     }
+
+    red() {
+
+      this.greenLight.turnOff();
+      this.redLight.turnOn();
+
+    }
+
+    green() {
+
+      this.redLight.turnOff();
+      this.greenLight.turnOn();
+
+    }
+
+    blinkRed() {
+
+      this.greenLight.turnOff();
+      this.redLight.blink();
+
+    }
+
+    blinkGreen() {
+
+      this.redLight.turnOff();
+      this.greenLight.blink();
+
+    }
+
+
+}
+
+class Pinger {
+
+  constructor( url, timeout ) {
+
+    this.url = url;
+    this.timeout = timeout || 5;
+    this.status = null;
+
+   }
+
+  ping() {
+
+    return $.ajax({
+      url: this.url,
+      timeout: this.timeout * 1000,
+      context: this
+    });
+
+  }
+
+}
+
+
+class TrafficLightWidget extends Pinger {
+
+  constructor( containerElementID, url, timeout ) {
+
+    // Extends Pinger class, so call parent constructor
+    super( url, timeout );
+
+    // Poll URL every 10s
+    this.frequency = 10;
+
+    this.trafficLight = new TrafficLight( containerElementID );
+
+    this.start();
+
+  }
+
+  setLights( status ) {
+
+    if ( status === 200 ) {
+      this.trafficLight.green();
+    } else {
+      this.trafficLight.blinkRed();
+    }
+
+  }
+
+  ping() {
+
+    var request = super.ping();
+
+    request.done(function (rs, textStatus, xhr) {
+        this.status = xhr.status;
+      })
+      .fail(function () {
+        this.status = -1;
+      })
+      .always(function() {
+        this.setLights( this.status );
+      })
+
+  }
+
+  start() {
+
+    this.ping();
+
+    if ( this.frequency > 0 ) {
+        this.timer = setInterval( function(){ this.ping(); }.bind(this), this.frequency * 1000 );
+    }
+
+  }
+
+  stop() {
+
+    clearInterval( this.timer );
+
+  }
 
 }

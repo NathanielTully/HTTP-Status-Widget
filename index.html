@@ -18,19 +18,23 @@
     <body>
 
         <div id="widget-1"></div>
+        <div id="widget-2"></div>
+        <div id="widget-3"></div>
+        <div id="widget-4"></div>
 
-
-<!--
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
--->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/main.js"></script>
 
         <script>
+          var widgets = [];
           $( document ).ready(function() {
-            var tl_widget = new TrafficLight( 'widget-1' );
-            tl_widget.redLight.blink();
+            widgets.push( new TrafficLightWidget( 'widget-1', 'status.php?200' ) );
+            widgets.push( new TrafficLightWidget( 'widget-2', 'status.php?500' ) );
+            widgets.push( new TrafficLightWidget( 'widget-3', 'status.php?404' ) );
+            widgets.push( new TrafficLightWidget( 'widget-4', 'status.php?201' ) );
+
           });
 
         </script>
